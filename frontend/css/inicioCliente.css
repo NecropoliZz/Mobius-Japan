@@ -1,0 +1,96 @@
+/* VARIABLES GLOBALES DE COLORES*/
+:root{
+    --color-fondo: #fff;
+    --color-texto: #000;
+    --color-bordes: #000;
+    --color-formulario-sombra:#000;
+    --color-fondo-hover:#000;
+    --color-texto-hover:#fff;
+    
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--color-fondo);
+}
+
+header{
+    font-weight: 500;
+    display: flex;
+    font-size: 1.4rem;
+    color: var(--color-texto);
+}
+
+.aplicacion-logo{
+    width: 50px;
+    height: 50px;
+}
+
+.aplicacion-nombre-empresa span{
+    font-weight: bold;
+}
+.aplicacion-nombre-alumnos span{
+    font-weight: bold;
+}
+
+main{
+    height: 500px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 30px;
+}
+.titulo{
+    text-align: center;
+    font-size: 4rem;
+    color: var(--color-texto);
+}
+.formulario{
+    width: 500px;
+    height: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px solid var(--color-bordes);
+    box-shadow: 0 0 10px 0 var(--color-formulario-sombra);
+    background-color: var(--color-fondo);
+    
+}
+.input-nombre{
+    width: 70%;
+    height: 40px;
+    margin-top: 40px;
+    text-align: center;
+    border-radius: 14px;
+    border: 2px solid var(--color-bordes);
+    font-size: 2rem;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    
+}
+.btn-enviar{
+    width: 40%;
+    height: 45px;
+    border-radius: 30px;
+    border: 1px solid var(--color-bordes);
+    font-size: 1.3rem;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+}
+.btn-enviar:hover{
+    background-color: var(--color-fondo-hover);
+    color: var(--color-texto-hover);
+}
+
+.btn-cambiar-estilo{
+    width: 90px;
+    height: 50px;
+    border-radius: 20px;
+    border: 2px solid var(--color-bordes);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
