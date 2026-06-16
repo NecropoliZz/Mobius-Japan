@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/carrito.js" defer></script>
+    <link rel="stylesheet" href="css/carrito.css">
+    <link rel="shortcut icon" href="assets/img/favicon.jpg" type="image/x-icon">
+    <title>
+        Carrito - Mobius Japan
+    </title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a class="title" href="">
+            <img src="assets/img/favicon.jpg" alt="logo pumpernic">
+            Mobius Japan
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li class="nav-links"><a href="index.html">Productos</a></li>
+                <li class="nav-links"><a href="carrito.html">Carrito</a></li>
+            </ul>
+        </nav>
+        <div class="theme-selector">
+            <label for="tema-select">Tema:</label>
+            <select id="tema-select">
+                <option value="oscuro">oscuro</option>
+                <option value="claro">claro</option>
+            </select>
+        </div>
+    </header>
+    <main>
+         <section class="cart">
+                <h2 id="titulo-carrito">Shopping Cart</h2>
+                
+                    <div class="cart_outline">
+                        <div class="cart_outline_item">
+                            <p class="cart_outline_num" id="total-quantity"></p>
+                            <p class="cart_outline_title">Total Quantity</p>
+                        </div>
+                        <div class="cart_outline_item">
+                            <p class="cart_outline_num" id="merchandise-total">
+                                <span class="price">USD</span>
+                            </p>
+                            <p class="cart_outline_title">Merchandise Total</p>
+                        </div>
+
+                    </div>
+                    <div class = "cart-bottom">
+                        <a class="bottom-proceed" href="ticket.html">Proceed to checkout</a>
+                    </div>
+                
+                <div class="cart-items">
+                    <!-- Items del carrito -->
+                </div>
+        </section>
+    </main>
+</body>
+</html>
