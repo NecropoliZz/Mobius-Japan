@@ -8,17 +8,42 @@
 </head>
 <body>
     <header>
-        <img class="aplicacion-logo" src="./assets/img/favicon.jpg" alt="Logo"> 
-        <p class="aplicacion-nombre-empresa">Nombre Empresa: <Span>Mobius Japan</Span> </p>
-        <p class="aplicacion-nombre-alumnos">Alumnos: <Span>David soria y Alexander Tito</Span></p>
+
+        <div class="empresa">
+
+            <img class="aplicacion-logo" src="./assets/img/favicon.jpg" alt="Logo">
+            <p class="aplicacion-nombre-empresa">Mobius Japan </p>
+
+        </div>
+        
+        <div class="desarrolladores">
+
+            <p>David soria </p>
+            <p>Alexander Tito</p>
+
+        </div>
+
+        <div class="theme-selector">
+            <label for="tema-select">Tema:</label>
+            <select class="tema-select" id="tema-select">
+                <option value="oscuro">oscuro</option>
+                <option value="claro">claro</option>
+            </select>
+        </div>
+        
     </header>
+
     <main>
-        <h1 class="titulo"> Bienvenido a nuestro autoservicio</h1>
-        <form class="formulario" action="./index.html">
-            <input class="input-nombre" type="text" placeholder="Escribe tu nombre">
-            <input class="btn-enviar" type="submit" value="CONTINUAR" >
-        </form>
-        <button class="btn-cambiar-estilo" onclick="cambiarEstilo()"></button>
+        <div class="contenedor-inicio">
+            
+            <h1 class="titulo"> Bienvenido</h1>
+
+            <form class="formulario" action="./index.html">
+                <input class="nombre-usuario" type="text" name="nombre-usuario" placeholder="Escribe tu nombre" required autocomplete="off">
+                <input class="btn-enviar" type="submit" value="CONTINUAR" onclick="guardarNombreUsuario()">
+            </form>
+
+        </div>
     </main>
 </body>
 </html>
