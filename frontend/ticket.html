@@ -1,0 +1,54 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/ticket.css">
+    <script src="./js/ticket.js" defer></script>
+    <title>Ticket</title>
+</head>
+<body>
+    <header>
+        <div class="empresa">
+
+            <img class="logo" src="./assets/img/favicon.jpg" alt="Logo">
+            <p class="nombre-empresa">Mobius Japan </p>
+
+        </div>
+        
+        <div class="desarrolladores">
+
+            <p>David soria </p>
+            <p>Alexander Tito</p>
+
+        </div>
+
+        <div class="theme-selector">
+            <label for="tema-select">Tema:</label>
+            <select class="tema-select" id="tema-select">
+                <option value="oscuro">oscuro</option>
+                <option value="claro">claro</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <h1>Ticket</h1>
+        <section class="container-print">
+            <h3 class="empresa">-----Mobius Japan-----</h3>
+            <h4 id="usuario"></h4>
+            <div id="fecha">
+                <p id="dia"></p>
+                <p id="hora"></p>
+            </div>
+            <div class="datos-compra">
+                    <table class="tabla-compras"> </table>
+            </div>
+            <p id="precio-final"></p>
+        </section>
+        <section class="opciones">
+            <button class="btn-imprimir">imprimir</button>
+            <button class="btn-salir">salir</button>
+        </section>
+    </main>
+</body>
+</html>
