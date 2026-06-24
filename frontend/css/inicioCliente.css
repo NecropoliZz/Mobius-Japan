@@ -1,5 +1,18 @@
 /* VARIABLES GLOBALES DE COLORES*/
 body{
+    --header-color-bg:    #fff;
+    --header-color-txt:   #000;
+    --main-color-bg:      #ddd;
+    --titulo-color-txt:   #1f1f27;
+    --sombra-color:       #000;
+    --inicio-color-bg:#ccc;    
+    --btn-color-txt:      #000;
+    --btn-color-bg:       #ddd;
+    --borde-color:    #000;
+    --nombre-color-txt:#000;
+    --nombre-color-bg:  #fff;
+}
+body.tema-oscuro{
     --header-color-bg:    #000;
     --header-color-txt:   #ffff;
     --main-color-bg:      #222;
@@ -11,19 +24,6 @@ body{
     --borde-color:    #fff;
     --nombre-color-txt:   #fff;
     --nombre-color-bg:  #555;
-}
-body.tema-claro{
-    --header-color-bg:    #ddd;
-    --header-color-txt:   #000;
-    --main-color-bg:      #ddd;
-    --titulo-color-txt:   #1f1f27;
-    --sombra-color:       #000;
-    --inicio-color-bg:#ccc;    
-    --btn-color-txt:      #000;
-    --btn-color-bg:       #ddd;
-    --borde-color:    #000;
-    --nombre-color-txt:#000;
-    --nombre-color-bg:  #fff;
 }
 
 
@@ -125,7 +125,7 @@ main{
 
     
 }
-.nombre-usuario{
+#nombre-usuario{
 
     font-size: 1rem;
     padding: 0.4rem;

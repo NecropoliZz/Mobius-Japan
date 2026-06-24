@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +26,8 @@
         <div class="theme-selector">
             <label for="tema-select">Tema:</label>
             <select class="tema-select" id="tema-select">
-                <option value="oscuro">oscuro</option>
                 <option value="claro">claro</option>
+                <option value="oscuro">oscuro</option>
             </select>
         </div>
         
@@ -39,8 +39,8 @@
             <h1 class="titulo"> Bienvenido</h1>
 
             <form class="formulario" action="./index.html">
-                <input class="nombre-usuario" type="text" name="nombre-usuario" placeholder="Escribe tu nombre" required autocomplete="off">
-                <input class="btn-enviar" type="submit" value="CONTINUAR" onclick="guardarNombreUsuario()">
+                <input id="nombre-usuario" type="text" name="nombre-usuario" placeholder="Escribe tu nombre" required autocomplete="off">
+                <input class="btn-enviar" type="submit" value="CONTINUAR" onclick="guardar()">
             </form>
 
         </div>
