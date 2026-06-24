@@ -1,3 +1,119 @@
 .logo{
-    height: 200px;
+    height: 50px;
+}
+
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: #ddd;
+    display: flex;
+}
+
+main{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+}
+
+.titulo{
+    font-size: 2.6rem;
+    border-bottom: 2px solid ;
+    margin-bottom: 1em;
+}
+.contenedor-print{
+    font-size: 1rem;
+    gap: 1.5em;
+
+    padding: 2em 3em;
+
+    display: flex;
+    flex-flow: column nowrap;
+    
+    background-color: #fff;
+    border: 1px solid;
+    
+}
+.dato-empresa{
+    font-weight: bolder;
+    text-align: center;
+}
+#usuario span{
+    font-weight: bold;
+}
+#fecha{
+    font-size: 0.9rem;
+    display: flex;
+    flex-flow: row nowrap;
+    gap:3px;
+    justify-content: space-between;
+}
+
+.encabezado-tabla-productos{
+    font-size: 1rem;
+    text-align: start;
+    padding-bottom: 1em;
+}
+.dato-nombre-producto{
+    font-size: 0.9rem;
+    padding-right:2em;
+    padding-bottom: 1em;
+}
+.dato-subtotal{
+    font-size: 0.9rem;
+    text-align: end;
+    padding-bottom: 1em;
+}
+#precio-final{
+    font-size: 1.3rem;
+}
+
+#precio-final span{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.opciones{
+    font-size: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 30px 30px;
+    gap: 3em;
+    justify-content: space-evenly;
+}
+.btn{
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    background-color: #ededed;
+    box-shadow: 0 0 3px 1px #000;
+    cursor: pointer;
+    text-align: center;
+}
+.btn-salir{
+    color: #000;
+    text-decoration: none;
+}
+
+@media(max-width:700px){
+    html{
+        font-size: 12px;
+    }
+
+}
+@media(max-width:450px){
+    html{
+        font-size: 8px;
+    }
+    main{
+        min-width: 250px;
+    }
+    .opciones{
+        font-size: 0.4rem;
+        flex-flow: column nowrap;
+        
+    }
 }
