@@ -1,0 +1,43 @@
+<header>
+        <div class="logo">
+            <a href="index.ejs" class="logo-container">
+                <img src="/icon/favicon.jpg" alt="logo mobius">
+            </a>
+        </div>
+        <nav>
+         <ul>
+            <li class="nav-links">
+                <a href="index">
+                    Ver
+                </a>
+            </li>
+
+            <li class="nav-links">
+                <a href="consultar">
+                    Consultar
+                </a>
+            </li>
+
+            <li class="nav-links">
+                <a href="crear">
+                    Crear
+                </a>
+            </li>
+
+            <li class="nav-links">
+                <a href="modificar">
+                    Modificar
+                </a>
+            </li>
+
+            <li class="nav-links">
+                <a href="eliminar">
+                    Eliminar
+                </a>
+            </li>
+         </ul>
+        </nav>
+        <form id="form-cerrar-sesion" method="POST" action="/login/destruir">
+        <input type="submit" value="Cerrar sesion" class="btn-logout">
+        </form>
+</header>

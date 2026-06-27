@@ -27,6 +27,9 @@ function iniciarTema() {
 async function init(){
     iniciarTema();
     productos = await requestProductos();
+    if(!productos){
+        return
+    }
     mostrarCategorias('figura');
     cargarBotonesCategorias();
 }
@@ -37,6 +40,10 @@ function obtenerCarrito()
     return carrito ? carrito : [];
 }
 
+function mostrarMensajeError(info){
+    const contenedorProductos = document.querySelector(".product-section");
+    contenedorProductos.innerHTML = `<div class = "bloque-error"><p class ="mensaje">${info}</p></div>`
+}
 function guardarCarrito(carrito) 
 {
     carrito.forEach(producto => {
@@ -52,7 +59,7 @@ function sumarAlCarrito(event) {
     let carrito = obtenerCarrito();
     const productoEnCarrito = carrito.find(producto => producto.id === productoSeleccionado.id);
     if (productoEnCarrito) {
-        if (productoEnCarrito.cantidad < 5) {  // Suponiendo que el límite es 5
+        if (productoEnCarrito.cantidad < 5) {  
             productoEnCarrito.cantidad += 1;
         } else {
             alert("No puedes agregar más de 5 unidades de este producto.");
@@ -67,8 +74,13 @@ async function requestProductos(){
     try {
         const response = await fetch('http://localhost:3000/api/productos/');
         const data = await response.json();
-        const productosdata = data.payload;
-        return productosdata;
+        if(!response.ok){
+            console.log(data.message);
+            mostrarMensajeError(data.message);
+            return
+        }
+        return data.payload;
+        console.log(productos);
     } catch (error) {
         console.error('Error al obtener los productos:', error);
     }

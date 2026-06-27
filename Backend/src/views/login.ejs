@@ -1,0 +1,26 @@
+<%- include("partials/head.ejs") %>
+<main>
+    <section class="Login">
+    <img src="/icon/favicon.jpg" alt="icono">
+    <h1 id="titulo-login">Inicio de sesion</h1>
+   <form id="loginForm" class="form-alta" action="/login" method="POST">
+
+    <label for="emailUser">Email: </label>
+    <input type="email" name="email" id="emailUser" class="inputLogin" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+
+    <label for="passwordUser">Password: </label>
+    <input type="password" name="password" id="passwordUser" class="inputLogin" required>
+
+    <div>
+        <input type="submit" value="Login" class="btn-login">
+    </div>
+   </form>
+   <% if (typeof error !== "undefined") { %>
+        <div class="error-mensaje">
+        <%= error %>
+        </div>
+        <% } %>
+    </section>
+</main>
+</body>
+</html>

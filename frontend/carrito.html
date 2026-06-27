@@ -13,8 +13,8 @@
 <body>
     <header>
         <div class="logo">
-            <a class="title" href="">
-            <img src="assets/img/favicon.jpg" alt="logo pumpernic">
+            <a class="title" href="index.html">
+            <img src="assets/img/favicon.jpg" alt="logo mobius">
             Mobius Japan
             </a>
         </div>
@@ -33,30 +33,31 @@
         </div>
     </header>
     <main>
-         <section class="cart">
-                <h2 id="titulo-carrito">Shopping Cart</h2>
+         <section class="carrito">
+                <h2 id="titulo-carrito">Carrito de Compras</h2>
                 
-                    <div class="cart_outline">
-                        <div class="cart_outline_item">
-                            <p class="cart_outline_num" id="total-quantity"></p>
-                            <p class="cart_outline_title">Total Quantity</p>
+                    <div class="carrito-descripcion">
+                        <div class="carrito-descripcion-item">
+                            <p class="carrito-descripcion-titulo">Cantidad Total</p>
+                            <p class="carrito-descripcion-numero" id="cantidad-total">0</p>
                         </div>
-                        <div class="cart_outline_item">
-                            <p class="cart_outline_num" id="merchandise-total">
-                                <span class="price">USD</span>
+                        <div class="carrito-descripcion-item">
+                            <p class="carrito-descripcion-titulo">Precio Total</p>
+                            <p class="carrito-descripcion-numero" id="precio-total">0
+                                <span class="moneda">USD</span>
                             </p>
-                            <p class="cart_outline_title">Merchandise Total</p>
                         </div>
 
                     </div>
-                    <div class = "cart-bottom">
-                        <a class="bottom-proceed" href="ticket.html">Proceed to checkout</a>
+                    <div class = "contenedor-btn-comprar">
+                        <button class="btn-comprar">Proceder a Comprar</button>
                     </div>
                 
-                <div class="cart-items">
-                    <!-- Items del carrito -->
+                <div class="carrito-lista">
+                    <!-- productos del carrito -->
                 </div>
         </section>
     </main>
+    <footer><p>Todos los derechos reservados | David Ezequiel Soria, Alexander Tito Araca</p></footer>
 </body>
 </html>

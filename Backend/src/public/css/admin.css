@@ -1,0 +1,135 @@
+@import url(style.css);
+
+/* Estilos para formularios etc */
+.form-productos{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+#producto-form{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-consultar{
+    background-color: blueviolet;
+    padding: 7px 10px;
+    border: 1px solid blueviolet;
+}
+
+#idProd{
+    max-height: 20px;
+}
+
+#contenedor-productos ul {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.lista-producto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.lista-producto img {
+    width: 50px;
+    height: 50px;
+}
+
+.lista-producto p {
+    font-size: 1rem;
+}
+
+/* Crear Producto */
+#formularioProducto{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+input{
+    max-width: 300px;
+}
+
+select{
+    max-width: 300px;
+    padding: 2px 2px;
+    color: #ffffff;
+    background-color: #1f1f27;
+}
+
+#contenedor-btn{
+    margin-top: 20px;
+}
+
+#btn-crear{
+    padding: 5px 10px;
+    background-color: blueviolet;
+}
+
+.Login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    gap: 10px;
+
+}
+
+.Login img {
+    height: 80px;
+    width: 80px;
+}
+
+.form-alta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#titulo-login{
+    margin-bottom: 10px;
+}
+
+.inputLogin {
+    width: 400px;
+
+}
+
+.btn-login{
+    padding: 10px 30px;
+    background-color: rgba(126, 10, 235);
+    border-radius: 6px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1rem;
+}
+
+.btn-logout {
+    padding: 10px 30px;
+    background-color: rgba(126, 10, 235);
+    border-radius: 6px;
+    border: 1px solid black;
+    color: black;
+    font-size: 1rem;
+    margin-left: 10px;
+
+}
+
+.error-mensaje{
+  background-color: red;
+  color: rgb(75, 14, 14);
+  text-align: center;
+  padding: 25px 25px;
+  border-radius: 10px;
+  border: 2px solid rgb(136, 4, 4);
+}
+
