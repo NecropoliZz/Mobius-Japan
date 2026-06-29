@@ -29,7 +29,7 @@ app.use("/uploads",express.static(join(__dirname, "uploads")))
 app.use(session({
     secret: session_key, 
     resave: false, 
-    saveUnitialized: true 
+    saveUninitialized: true 
 }));
 
 // Endpoints
