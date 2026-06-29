@@ -83,7 +83,6 @@ export const crearProducto = async (req, res) => {
 export const modificarProducto = async (req, res) => {
    
     try {
-        console.log(req.body);
         console.log(req.body.id)
 
         const { id, nombre, imagen, precio, categoria, activo } = req.body;
@@ -106,11 +105,8 @@ export const modificarProducto = async (req, res) => {
             message: "Producto actualizado correctamente"
         });
 
-
     } catch (error) {
         console.log(error);
-
-        //Devolvemos un codigo de estado 500
         res.status(500).json({
             message: "Error interno del servidor"
         });
