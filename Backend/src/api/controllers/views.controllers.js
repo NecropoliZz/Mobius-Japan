@@ -36,3 +36,10 @@ export const crearView = (req, res) => {
         title: "crear"
     })
 }
+
+//Vista modificar
+export const modificarView = (req,res)=>{
+    res.render("modificar",{
+        title:"Modificar"
+    })
+}
