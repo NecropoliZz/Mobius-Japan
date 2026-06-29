@@ -18,6 +18,11 @@
     padding: 7px 10px;
     border: 1px solid blueviolet;
 }
+.btn-modificar{
+    border: 1px solid #fff;
+    padding: 2px 3px;
+    cursor: pointer;
+}
 
 #idProd{
     max-height: 20px;
@@ -79,7 +84,6 @@ select{
     align-items: center;
     height: 70vh;
     gap: 10px;
-
 }
 
 .Login img {
