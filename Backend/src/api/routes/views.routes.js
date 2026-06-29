@@ -1,7 +1,7 @@
 // Ruta de productos
 
 import { Router } from "express";
-import { indexView, consultarView, crearView } from "../controllers/views.controllers.js";
+import { indexView, consultarView, crearView, modificarView } from "../controllers/views.controllers.js";
 import { requiereLogin } from "../middlewares/middlewares.js";
 
 const router = Router();
@@ -22,7 +22,7 @@ router.get("/crear", requiereLogin, crearView);
 
 ////////////////////
 // Vista modificar producto
-//router.get("/modificar", modificarView);
+router.get("/modificar", modificarView);
 
 
 ////////////////////
