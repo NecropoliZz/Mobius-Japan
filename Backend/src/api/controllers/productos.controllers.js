@@ -101,7 +101,7 @@ export const modificarProducto = async (req, res) => {
             })
         }
     
-        return res.status(200).json({
+        return res.status(204).json({
             message: "Producto actualizado correctamente"
         });
 
@@ -116,17 +116,20 @@ export const modificarProducto = async (req, res) => {
 export const borrarProducto = async (req, res) => {
 
     try {
-    
-        await productosModels.deleteProducto(req.id);
-    
-        res.status(204).json({
-            message: `Producto con id ${req.id} eliminado exitosamente`
-        });
+        const [resultado] = await productosModels.deleteProducto(req.id);
+        if(resultado.affectedRows === 0){
+            return res.status(404).json({
+                message:`Ese producto no se encuentra en el sistema`
+            });
+        }
+        
+        return res.status(200).json({
+                message:`Producto con id ${req.id} eliminado exitosamente`
+            })
+        
 
     } catch (error) {
-        console.log(`Error en peticion DELETE`, error);
-
-        //Enviamos una respuesta 500 al cliente
+        console.error(error);
         res.status(500).json({
             message : "Error interno del servidor"
         });
