@@ -43,3 +43,9 @@ export const modificarView = (req,res)=>{
         title:"Modificar"
     })
 }
+
+export const eliminarView = (req,res)=>{
+    res.render("eliminar",{
+        title:"Eliminar"
+    })
+}
