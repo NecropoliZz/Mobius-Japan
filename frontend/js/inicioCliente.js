@@ -2,15 +2,33 @@
 function init(){
     limpiarLocalStorage();
     iniciarTema();
+    agregarEventoNombreUsuario();
 }
 
+const botonContinuar = document.querySelector(".btn-enviar");
+
 /*-- Funcion que guarda el nombre del usuario y el tema al localStorage.  ---*/ 
+
+
 
 function guardar(){
     const campoNombreUsuario = document.getElementById("nombre-usuario");
     localStorage.setItem("nombre-usuario", campoNombreUsuario.value);
     const tema = document.getElementById("tema-select");
     localStorage.setItem("tema", tema.value);
+}
+
+function agregarEventoNombreUsuario(){
+    const campoNombreUsuario = document.getElementById("nombre-usuario");
+    campoNombreUsuario.addEventListener("input", ()=>{
+        
+        if(campoNombreUsuario.value === ""){
+            botonContinuar.hidden = true;
+        }
+        else{
+            botonContinuar.hidden = false;
+        }
+    })
 }
 
 function limpiarLocalStorage(){

@@ -1,5 +1,5 @@
-<%- include('partials/head') %>
-<%- include('partials/nav') %>
+<%- include('partials/head.ejs') %>
+<%- include('partials/nav.ejs') %>
 <main>
     <section class="form-productos">
 
@@ -7,19 +7,19 @@
             <form id="get-producto-form">
                 <label for="idProd">Id del producto: </label>
                 <input type="number" name="idProd" id="idProd" required>
-                <input type="submit" value="Consultar producto" class="btn-consultar">
+                <input type="submit" value="Consultar producto" class="btn">
             </form>
 
     </section>
 
     <section class="seccion-producto">
 
-            <div id="producto"> </div>
+            <div id="contenedor-producto"> </div>
 
     </section>
 
     <section id="seccion-form-modificar"> </section>
 
 </main>
-<%- include('partials/footer') %>
+<%- include('partials/footer.ejs') %>
 <script src="/js/modificar.js""></script>

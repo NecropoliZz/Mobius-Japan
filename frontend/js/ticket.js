@@ -1,13 +1,21 @@
-
+import jsPDF from "https://cdn.jsdelivr.net/npm/jspdf@2.5.1/+esm";
+const doc = new jsPDF();
+const btnVerPDF = document.getElementById("ver-PDF");
 function init(){
-    renderizarProductos(PRODUCTOS);
-    renderizarUsuario(USUARIO);
-    renderizarTotal(PRODUCTOS);
+    const productos = getProductos();
+    const usuario = getNombreUsuario();
+    const precioTotal = getPrecioTotal(productos);
+    renderizarProductos(productos);
+    renderizarUsuario(usuario);
     renderizarFecha();
+    renderizarTotal(precioTotal);
+    crearArchivoPDF(productos, precioTotal, usuario)
 }
-const USUARIO = getNombreUsuario();
-const PRODUCTOS = getProductos();
-
+init();
+btnVerPDF.addEventListener("click",()=>{
+    const url = doc.output('bloburl');
+    window.open(url);
+})
 
 //Renderizaciones
 
@@ -32,9 +40,9 @@ function renderizarUsuario(usuarioARenderizar){
     usuario.innerHTML = `Compra de <span>${usuarioARenderizar} </span>`;
 }
 
-function renderizarTotal(productos){
+function renderizarTotal(total){
     const precioTotal = document.getElementById("precio-final");
-    precioTotal.innerHTML= `Total a pagar: <span>$${getPrecioTotal(productos)}</span>`
+    precioTotal.innerHTML= `Total a pagar: <span>$${total}</span>`
 }
 function renderizarFecha(){
     const dia = document.getElementById("dia");
@@ -45,15 +53,60 @@ function renderizarFecha(){
 }
 
 
+
+//Inserciones en pdf
+function crearArchivoPDF(productos, precioTotal, usuario){
+    doc.setFontSize(12);
+    let ejeX = 20;
+    let ejeY = 20;
+    insertarEmpresaPDF(ejeX, ejeY);
+    ejeY+= 20;
+    insertarFechaPDF(ejeX,ejeY,100);
+    ejeY+= 20;
+    insertarUsuarioPDF(usuario, ejeX, ejeY);
+    ejeY+= 20;
+    ejeY = insertarProductosPDF(productos, ejeX, ejeY, 20);
+    insertarTotalPDF(precioTotal,ejeX,ejeY);
+}
+
+function insertarProductosPDF(productos, ejeX, ejeY, distanciaEntreProductos){
+    productos.forEach(producto=>{
+        let precioSubtotal = getPrecioSubtotal(producto);
+        doc.text(` ${producto.nombre} x $${producto.precio } x ${producto.cantidad }   =   $${precioSubtotal}`, ejeX, ejeY);
+        ejeY += distanciaEntreProductos;
+    })
+    return ejeY;
+}
+
+function insertarUsuarioPDF(usuarioARenderizar, ejeX, ejeY){
+    doc.text(`A NOMBRE DE ${usuarioARenderizar}`, ejeX,ejeY);
+}
+
+function insertarTotalPDF(precioTotal, ejeX, ejeY){
+    doc.text(`Total a pagar: $${precioTotal}`, ejeX, ejeY);
+}
+
+function insertarFechaPDF(ejeX,ejeY, distanciaX){
+    const dia = document.getElementById("dia");
+    const hora = document.getElementById("hora");
+    const fecha = new Date();
+    doc.text(`Dia: ${fecha.getDay()}/${fecha.getMonth()}/${fecha.getFullYear()} `, ejeX, ejeY)
+    doc.text(`Hora: ${fecha.getHours()}:${fecha.getMinutes()}`, ejeX + distanciaX, ejeY);
+}
+
+function insertarEmpresaPDF(ejeX,ejeY){
+    doc.text("AUTOSERVICIO DE Mobius Japan", ejeX,ejeY);
+}
+
 //HELPERS
 
 function getPrecioSubtotal(producto){
     return producto.precio * producto.cantidad;
 }
+
 function getNombreUsuario(){
     return localStorage.getItem("nombre-usuario") || "Nombre No definido";
 }
-
 
 function getPrecioTotal(productos){
     let precioTotal = 0;
@@ -69,4 +122,5 @@ function getProductos(){
     return productos;
 }
 
-init();
+
+

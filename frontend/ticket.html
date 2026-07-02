@@ -3,18 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/ticket.css">
-    <script src="./js/ticket.js" defer></script>
+    <script src="./js/ticket.js" type="module" defer></script>
     <title>Ticket</title>
 </head>
 <body>
     <header>
         <div class="empresa">
+            <img class="logo-empresa" src="./assets/img/favicon.jpg" alt="Logo">
             <p class="nombre-empresa">Mobius Japan </p>
-            <img class="logo" src="./assets/img/favicon.jpg" alt="Logo">
-            
-
-        </div>
-
         </div>
     </header>
 
@@ -36,10 +32,11 @@
             <p id="precio-final"></p>
         </section>
         <section class="opciones">
-            <button class="btn btn-imprimir">Imprimir</button>
-            <button class="btn btn-descargar-excel">Descargar en excel</button>
+            <button class="btn" id="ver-PDF">Ver en PDF</button>
             <a class="btn btn-salir" href="./inicioCliente.html">Salir</a>
         </section>
     </main>
+
+    <footer><p>Todos los derechos reservados | David Ezequiel Soria, Alexander Tito Araca</p></footer>
 </body>
 </html>

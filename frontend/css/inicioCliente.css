@@ -35,12 +35,13 @@ body.tema-oscuro{
 
 body{
     background-color: var(--header-color-bg);
+    
 }
 
 header{
     font-size: 1.5rem;
     font-weight: bold;
-
+    transition: 0.3s;
     display: flex;
     justify-content: space-between;
     
@@ -52,7 +53,7 @@ header{
 
 main{
     min-height: 100vh;
-
+    transition: 0.3s;
     display: flex;
     justify-content: center;
     align-items: start;
@@ -108,13 +109,12 @@ main{
 
 .titulo{
     font-size: 4rem;
-
     color: var(--titulo-color-txt);
 }
+
 .formulario{
 
-    font-size: 2rem;
-    
+    font-size: 2rem;    
     padding: 1em 0;
     gap: 1em;
 
@@ -122,8 +122,6 @@ main{
     flex-flow: column nowrap;
     align-items: center;
 
-
-    
 }
 #nombre-usuario{
 
@@ -135,11 +133,8 @@ main{
     
     background-color: var(--nombre-color-bg);
     color: var(--nombre-color-txt);
-
     outline-style: none;
-
 }
-
 
 .btn-enviar{
     font-size: 1rem;
@@ -148,17 +143,9 @@ main{
 
     border-radius: 30px;
     border: 1px solid var(--borde-color);
-    
     background-color: var(--btn-color-bg);
     color: var(--btn-color-txt);
-    transition: 0.5s;
     cursor: pointer;
-}
-
-
-/* Si el placehorder del input nombre usuario no se muestra, el boton enviar escalara*/
-.nombre-usuario:not(:placeholder-shown) ~ .btn-enviar{ 
-    scale: 1.06;
 }
 
 @media(max-width: 700px){

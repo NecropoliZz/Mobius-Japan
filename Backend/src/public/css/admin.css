@@ -68,6 +68,7 @@ input{
     max-width: 300px;
 }
 
+
 select{
     max-width: 300px;
     padding: 2px 2px;
@@ -105,6 +106,13 @@ select{
     justify-content: center;
     gap: 10px;
 }
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 
 #titulo-login{
     margin-bottom: 10px;
@@ -112,7 +120,13 @@ select{
 
 .inputLogin {
     width: 400px;
+}
 
+.btn{
+    padding: 4px 8px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #000;
 }
 
 .btn-login{
@@ -134,13 +148,15 @@ select{
     margin-left: 10px;
 
 }
-
-.error-mensaje{
-  background-color: red;
-  color: rgb(75, 14, 14);
-  text-align: center;
-  padding: 25px 25px;
-  border-radius: 10px;
-  border: 2px solid rgb(136, 4, 4);
+.mensaje{
+    font-size: 21px;
+    padding: 15px 15px;
+    text-align: center;
+}
+.mensaje-error{
+    color: #f44;
+}
+.mensaje-exito{
+    color: #4f4;
 }
 

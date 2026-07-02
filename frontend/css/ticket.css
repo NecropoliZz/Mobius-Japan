@@ -1,6 +1,4 @@
-.logo{
-    height: 50px;
-}
+
 
 *, *::after, *::before{
     padding: 0;
@@ -8,8 +6,9 @@
     box-sizing: border-box;
 }
 header{
-    background-color: #ddd;
-    display: flex;
+    font-size: 1.5rem;
+    background-color: #eee;
+    
 }
 
 main{
@@ -18,12 +17,26 @@ main{
     align-items: center;
 
 }
+.empresa{
+    color: #000;
+    justify-content: start;
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 10px 10px;
+}
+.logo-empresa{
+    height: 50px;
+    width: 50px;
+}
 
 .titulo{
     font-size: 2.6rem;
     border-bottom: 2px solid ;
     margin-bottom: 1em;
 }
+
 .contenedor-print{
     font-size: 1rem;
     gap: 1.5em;
@@ -96,6 +109,16 @@ main{
 .btn-salir{
     color: #000;
     text-decoration: none;
+}
+
+/* ── Footer ── */
+footer {
+    background-color: var(--bg-header);
+    border-top: 1px solid var(--color-border);
+    padding: 16px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-text);
 }
 
 @media(max-width:700px){
