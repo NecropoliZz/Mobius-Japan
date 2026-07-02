@@ -1,5 +1,5 @@
 import express from "express";
-import {productoRoutes, viewRoutes, ticketsRoutes, usuariosRoutes} from "./src/api/routes/index.js"
+import {productoRoutes, viewRoutes, ticketsRoutes, loginRoutes, usuariosRoutes} from "./src/api/routes/index.js"
 import { loggerUrl } from "./src/api/middlewares/middlewares.js";
 const app = express();
 import environments from "./src/api/config/environments.js";
@@ -36,7 +36,8 @@ app.use(session({
 app.use("/api/productos", productoRoutes);
 app.use("/dashboard", viewRoutes);
 app.use("/api/tickets", ticketsRoutes);
-app.use("/login",usuariosRoutes);
+app.use("/login",loginRoutes);
+app.use("/api/usuarios", usuariosRoutes)
 
 
 app.listen(PORT, () => {

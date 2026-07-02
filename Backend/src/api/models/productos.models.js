@@ -12,9 +12,9 @@ const selectProductoPorId = (id) => {
     return connection.query(sql, [id]);
 }
 //Crear Producto
-const intoProducto = (nombre, imagen, precio, categoria, activo) => {
-    const sql = "INSERT INTO productos (nombre, imagen, categoria, precio, activo) VALUES (?, ?, ?, ?, ?)";
-    return connection.query(sql, [nombre, imagen, categoria, precio, activo]);
+const intoProducto = (nombre, imagen, precio, categoria) => {
+    const sql = "INSERT INTO productos (nombre, imagen, categoria, precio) VALUES (?, ?, ?, ?)";
+    return connection.query(sql, [nombre, imagen, categoria, precio]);
 }
 // Modificar producto
 const updateProducto = (nombre, imagen, precio, categoria, id, activo) => {

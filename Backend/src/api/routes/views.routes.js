@@ -22,11 +22,11 @@ router.get("/crear", requiereLogin, crearView);
 
 ////////////////////
 // Vista modificar producto
-router.get("/modificar", modificarView);
+router.get("/modificar", requiereLogin, modificarView);
 
 
 ////////////////////
 // Vista eliminar producto
-router.get("/eliminar", eliminarView);
+router.get("/eliminar", requiereLogin, eliminarView);
 
 export default router;
