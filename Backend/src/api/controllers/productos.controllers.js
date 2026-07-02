@@ -62,9 +62,9 @@ export const crearProducto = async (req, res) => {
         
         console.log(req.body);
         
-        const { nombre, imagen, categoria, precio, activo} = req.body;
+        const { nombre, imagen, categoria, precio} = req.body;
 
-        const [rows] = await productosModels.intoProducto(nombre,imagen,precio,categoria, activo)
+        const [rows] = await productosModels.intoProducto(nombre,imagen,precio,categoria)
         
         res.status(200).json({
             message: "Producto creado con exito",

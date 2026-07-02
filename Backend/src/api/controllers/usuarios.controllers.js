@@ -1,56 +1,30 @@
+//usuarios controllers
+import bcrypt from "bcrypt"
 import usuariosModels from "../models/usuarios.models.js";
 
-export const loginVista = (req, res) => {
-   res.render("login",
-    {
-        title: "Login"
-    });
-}
+//Crear usuario admin
+export const crearAdminUsuario = async (req, res) => {
 
-export const validarLoginInfo = async (req, res) => {
+    try {
+        // Recogemos los datos limpios del body
+        const { nombreUsuario, emailUsuario, passwordUsuario } = req.body;
 
-    try{
-        const {email, password} = req.body;
+        // definimos el nivel de hasheo y hasheamos la contraseña antes de insertar
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(passwordUsuario, saltRounds);
 
-        if(!email || !password){
-            return res.render("login",{
-                title: "Login",
-                error: "Envia todos los datos"
-            })
-        }
+        const [rows] = await usuariosModels.insertAdminUsuario(nombreUsuario, emailUsuario, hashedPassword);
+        
+        res.status(201).json({
+            message: `Usuario creado con exito`,
+            userId: rows.insertId
+        });
 
-        const [filas] = await usuariosModels.selectUsuario(email, password);
-
-        if(filas.length === 0){
-            return res.render("login", {
-                title: "Login",
-                error: "Usuario no encontrado"
-            });
-        }
-        const user = filas[0];
-
-        req.session.user = {
-            id: user.id,
-            name: user.name,
-            email: user.email
-        }
-        res.redirect("/dashboard/index")
-
-    }catch(error)
-    {
+    } catch (error) {
         console.log(error);
+
+        res.status(500).json({
+            message: "Error interno del servidor"
+        });
     }
-}
-
-export const destruirLogin = (req, res) => {
-    req.session.destroy((error) => {
-        if(error){
-            console.log("Error al destruir la sesion", error);
-            return res.status(500).json({
-                message: "Error al cerrar la sesion"
-            })
-        }
-        res.redirect("/login");
-
-    });
 }

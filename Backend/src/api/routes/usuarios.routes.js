@@ -1,16 +1,12 @@
-//Rutas de usuarios
+//usuarios rutas
 import { Router } from "express";
-import { loginVista, validarLoginInfo, destruirLogin } from "../controllers/usuarios.controllers.js";
+import { crearAdminUsuario } from "../controllers/usuarios.controllers.js";
+import { validarcreacionUsuario } from "../middlewares/middlewares.js";
+
 const router = Router();
 
+//Crear usuario
+router.post("/", validarcreacionUsuario, crearAdminUsuario)
 
-// Vista login
-router.get("/", loginVista);
-
-// Validar el login
-router.post("/", validarLoginInfo);
-
-//Destruir la sesion
-router.post("/destruir", destruirLogin);
 
 export default router;

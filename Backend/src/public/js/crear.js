@@ -14,10 +14,6 @@ if (!data.categoria) {
     errores.push("Debe seleccionarse una categoria");
 }
 
-if(!data.activo){
-    errores.push("Debe seleccionarse un estado")
-}
-
 return errores;
 }
 
@@ -71,9 +67,53 @@ async function postProducto(event){
     }
 
 }
+async function postUsuario(event){
+    event.preventDefault();
+            
+    const formularioAlta = event.target;
+
+    const formData = new FormData(formularioAlta);
+
+    const data = Object.fromEntries(formData.entries());
+
+    if(!data.nombreUsuario || !data.emailUsuario || !data.passwordUsuario){
+        alert("se deben rellenar todos los campos")
+        return
+    }
+
+    try {
+    
+    const response = await fetch("http://localhost:3000/api/usuarios/", {
+    method: "POST",
+    headers: {
+    "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+    });
+
+    console.log(response);
+
+    const result = await response.json();
+
+    if (!response.ok) {
+    console.log(result.message)
+    alert(`${result.message}`)
+    return;
+    }            
+   
+    alert(`usuario creado con exito`)
+
+    formularioAlta.reset();
+
+    } catch (error) {
+    console.error("Error al enviar los datos: ", error);
+    }
+}
 
 window.addEventListener("DOMContentLoaded", () => {
 const formularioProducto = document.getElementById("formularioProducto");
+const formularioUsuario = document.getElementById("formularioUsuario");
 console.log(formularioProducto);
 formularioProducto.addEventListener("submit", postProducto);
+formularioUsuario.addEventListener("submit", postUsuario);
 });

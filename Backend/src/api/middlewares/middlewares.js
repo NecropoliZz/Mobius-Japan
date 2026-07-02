@@ -1,14 +1,13 @@
 
-// Middleware logger para analizar todas las solicitudes por consola (tener el historial del consumo de nuestra Api REST en la consola)
+// Middleware logger 
 const loggerUrl = (req, res, next) => {
     let fecha = new Date();
     console.log(`[${fecha.toLocaleDateString()} ${fecha.toLocaleTimeString()}] ${req.method} ${req.url}`);
     
-    next(); // next() da paso a que continue la respuesta o el siguiente middleware (en caso de haberlo)
-};
+    next(); 
+}
 
-
-
+//Middleware para valir el id del url
 const validarId = (req, res, next) => {
     const id = Number(req.params.id); // Transformo el id a un numbero
 
@@ -65,6 +64,7 @@ const validarProducto = (req, res, next) => {
     next();
 }
 
+//middleware para validar ventas
 const validarVenta = (req, res, next) =>{
 
     const {nombre_usuario, fecha, precio_total} = req.body;
@@ -73,8 +73,8 @@ const validarVenta = (req, res, next) =>{
         errores.push("Datos invalidos")
     }
 
-    if (typeof nombre_usuario !== "string" || nombre_usuario.trim().length < 2) {
-        errores.push("El nombre debe tener al menos 2 caracteres");
+    if (typeof nombre_usuario !== "string") {
+        errores.push("debe haber un nombre");
     }
 
     if (typeof precio_total!== "number" || precio_total <= 0) {
@@ -91,6 +91,29 @@ const validarVenta = (req, res, next) =>{
 
 }
 
+//middleware para validar usuarios
+const validarcreacionUsuario = (req, res, next) =>{
+
+    const { nombreUsuario, emailUsuario, passwordUsuario } = req.body;
+    const errores = []
+    if(!nombreUsuario || !emailUsuario || !passwordUsuario){
+        errores.push("Datos invalidos")
+    }
+
+    if (typeof nombreUsuario !== "string") {
+        errores.push("debe haber un nombre");
+    }
+
+     
+    if(errores.length > 0){
+        return res.status(404).json({
+            message: "Datos invalidos", errores
+        });
+    }
+
+    next();
+}
+//middleware de login
 const requiereLogin = (req, res, next) =>{
     if(!req.session.user){
         //si no hay sesion lo mandamos al login
@@ -104,5 +127,6 @@ export{
     validarProducto,
     validarId,
     validarVenta,
+    validarcreacionUsuario,
     requiereLogin
 }

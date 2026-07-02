@@ -57,6 +57,13 @@
     gap: 5px;
 }
 
+#formularioUsuario{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 input{
     max-width: 300px;
 }
@@ -72,7 +79,7 @@ select{
     margin-top: 20px;
 }
 
-#btn-crear{
+.btn-crear{
     padding: 5px 10px;
     background-color: blueviolet;
 }

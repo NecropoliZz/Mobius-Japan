@@ -95,6 +95,7 @@ function agregarEventocompra(){
         if(!respuesta.ok){
             console.log(bodydata.message)
             alert("Error creando ticket")
+            return
         }
         window.location.href = "ticket.html";
 
@@ -119,6 +120,7 @@ function actualizarResumen() {
 
  
 function cargarProductosCarrito() {
+    validarNombre();
     const cart = document.querySelector(".carrito-lista");
     const carrito = obtenerCarrito();
  
@@ -173,6 +175,15 @@ function limpiarCarrito() {
     actualizarResumen();
     alert("Carrito limpiado correctamente");
 }
+
+
+function validarNombre(){
+    const nombre = localStorage.getItem("nombre-usuario");
+    if(!nombre){
+        window.location.href = "inicioCliente.html";
+    }
+}
+
  
 window.addEventListener("DOMContentLoaded", () => {
     iniciarTema();

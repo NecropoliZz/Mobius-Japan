@@ -25,6 +25,7 @@ function iniciarTema() {
 /* ── Productos ── */
 
 async function init(){
+    validarNombre();
     iniciarTema();
     productos = await requestProductos();
     if(!productos){
@@ -98,6 +99,13 @@ function cargarBotonesAgregarAlCarrito(){
     botonesAgregar.forEach(boton => {
         boton.addEventListener('click', sumarAlCarrito);
     });
+}
+
+function validarNombre(){
+    const nombre = localStorage.getItem("nombre-usuario");
+    if(!nombre){
+        window.location.href = "inicioCliente.html";
+    }
 }
 
 function mostrarCategorias(categoria) {

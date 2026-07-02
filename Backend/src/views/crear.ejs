@@ -1,7 +1,7 @@
 <%- include("partials/head.ejs") %>
 <%- include("partials/nav.ejs") %>
 <main>
-    <div class="formulario-productos">
+    <div class="formulario">
         <h2>Crear producto</h2>
             
         <form id="formularioProducto">
@@ -19,17 +19,30 @@
 
             <label for="precioProd">Precio</label>
             <input type="number" name="precio" id="precioProd" required>
-
-            <label for="activoProd">Activo</label>
-            <select name="activo" id="activoProd">
-                <option value="1">si</option>
-                <option value="0">no</option>
-            </select>
-                
+     
             <div id = "contenedor-btn">
-                <input type="submit" value="Crear producto" id="btn-crear">
+                <input type="submit" value="Crear producto" class="btn-crear">
             </div>
         </form>
+    </div> 
+    <div class="formulario">
+        <h2>Alta Usuario</h2>
+            
+        <form id="formularioUsuario">
+            <label for="nameProd">Nombre</label>
+            <input type="text" name="nombreUsuario" id="nombreUser" required>
+
+            <label for="imageProd">Email</label>
+            <input type="text" name="emailUsuario" id="emailUser" required>
+
+            <label for="imageProd">Password</label>
+            <input type="text" name="passwordUsuario" id="passUser" required>
+     
+            <div id = "contenedor-btn">
+                <input type="submit" value="Crear Usuario" class="btn-crear">
+            </div>
+        </form>
+    </div>  
 </main>
 <%- include("partials/footer.ejs") %>
 <script src="/js/crear.js"></script>
