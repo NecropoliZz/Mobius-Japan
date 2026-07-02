@@ -6,6 +6,12 @@ const selectProductosActivos = () => {
     return connection.query(sql);
 }
 
+//Traer todos los productos
+const selectProductosAll = () => {
+    const sql = "SELECT id, nombre, precio, imagen, categoria, activo FROM productos";
+    return connection.query(sql);
+}
+
 // Traer producto por Id
 const selectProductoPorId = (id) => {
     const sql = "SELECT id, nombre, precio, imagen, categoria, activo FROM productos WHERE productos.id = ?";
@@ -30,6 +36,7 @@ const deleteProducto = (id) => {
 }
 export default {
     selectProductosActivos,
+    selectProductosAll,
     selectProductoPorId,
     intoProducto,
     updateProducto,
