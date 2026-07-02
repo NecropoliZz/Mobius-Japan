@@ -1,33 +1,28 @@
 const getProductForm = document.getElementById("get-producto-form");
-const contenedorProducto = document.getElementById("producto");
-const contenedorModificarForm = document.getElementById("seccion-form-modificar");
+const contenedorProducto = document.getElementById("contenedor-producto");
+const contenedorFormSetProducto = document.getElementById("seccion-form-modificar");
 
 const urlBase = "http://localhost:3000/api/productos";
 
 getProductForm.addEventListener("submit", async event => {
-    event.preventDefault(); //Evitamos el envio por defecto HTML del formulario
+    event.preventDefault(); //Evita que la pagina se recargue sola al enviar el submit
 
     const idProd = event.target.idProd.value.trim();
     
-    //Verificamos id valido
     if (!idProd) {
         mostrarMensaje("error", "Ingresá un id válido");
         return;
     }
     try {
         const response = await fetch(`${urlBase}/${idProd}`);
-        console.log(response);
-
         const datos = await response.json();
-        console.log(datos);
-
+  
         if (!response.ok) {
             mostrarMensaje("error", datos.message);
             return;
         }
-        console.log("PRODUCTO ES = " + datos.payload[0]);
-        const contenedorProducto = datos.payload[0];
-        renderizarProducto(contenedorProducto);
+        renderizarProducto(datos.payload[0]);
+        contenedorFormSetProducto.innerHTML = "";
 
     } catch (error) {
         console.error(error.message);
@@ -37,35 +32,22 @@ getProductForm.addEventListener("submit", async event => {
 
 function renderizarProducto(producto) {
     contenedorProducto.innerHTML= `
-    <ul>
-        <li class="lista-producto">
+        <div class="lista-producto">
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <p>Id: ${producto.id} / Nombre: ${producto.nombre} / Categoria: ${producto.categoria} / <strong>Precio: $${producto.precio}</strong></p>
-            <input type="button" id="btn-modificar" class="btn-modificar" value="Actualizar Producto">
-        </li>
-    </ul>`;
+            <input type="button" id="btn-modificar" class="btn" value="Ver formulario de modificacion">
+        </div>`;
 
     const btnModificar = document.getElementById("btn-modificar");
-
     btnModificar.addEventListener("click", event => {
         event.stopPropagation();
-
-        const confirmacion = confirm("Querés actualizar este producto?");
-
-        if(!confirmacion) {
-            alert("Actualizacion cancelada");
-        } else {
-            formularioPutProducto(event, producto);
-        }
+        renderFormSetProducto(producto);
     });
 }
 
-// Funcion para realizar una operacion delete
-async function formularioPutProducto(event, producto) {
-    event.stopPropagation(); // Evitamos la propagacion de eventos
-    // Reciclamos el formulario de crear producto
-    const htmlForm = `
-    <hr>
+
+function renderFormSetProducto(producto) {
+    contenedorFormSetProducto.innerHTML = `
     <form id="form-modificar" class="form-alta">
 
         <input type="hidden" name="id" value="${producto.id}">
@@ -91,21 +73,22 @@ async function formularioPutProducto(event, producto) {
         </select>
         
         <div>
-            <input type="submit" value="Actualizar producto">
+            <input type="submit" class="btn" value="Guardar cambios">
         </div>
     </form>
     `;
-
-    contenedorModificarForm.innerHTML = htmlForm;
-
     const formModificar = document.getElementById("form-modificar");
 
     formModificar.addEventListener("submit", event => {
-        actualizarProducto(event);
+        const confirmacion = confirm("Querés actualizar este producto?");
+        if(!confirmacion) {
+            mostrarMensajeAviso("Modificacion cancelada")
+        } else {
+            actualizarProducto(event);
+        }
+        
     });
 }
-
-
 async function actualizarProducto(event) {
     event.preventDefault(); 
     const formData = new FormData(event.target);
@@ -118,24 +101,25 @@ async function actualizarProducto(event) {
             },
             body: JSON.stringify(data)
         });
-
-        const result = await response.json();
-
         if(!response.ok) {
-            mostrarMensaje("error", result.message);
+            mostrarMensaje("error", "Hubo un error con modificar el producto");
             return;
         }
-
-        mostrarMensaje("exito", result.message);
+        mostrarMensaje("exito", "Producto modificado con exito");
 
     } catch (error) {
         console.error(error);
-        mostrarMensaje("error", error)
+        mostrarMensaje("error", "Ocurrio un error interno del")
     }
 }
 
 function mostrarMensaje(tipo, mensaje) {
-    contenedorModificarForm.innerHTML = "";
-    producto.innerHTML = `
+    contenedorFormSetProducto.innerHTML = "";
+    contenedorProducto.innerHTML = `
         <p class="mensaje mensaje-${tipo}">${mensaje}</p>`;
+}
+function mostrarMensajeAviso(mensaje){
+    contenedorFormSetProducto.innerHTML = "";
+    contenedorProducto.innerHTML = `
+        <p class="mensaje">${mensaje}</p>`;
 }

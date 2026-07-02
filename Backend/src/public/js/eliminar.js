@@ -14,7 +14,7 @@ getProductForm.addEventListener("submit", async event => {
         if(!response.ok){
             mostrarMensajeFeedback("error",data.message);
         }
-        if (response.ok) {
+        if(response.ok) {
             const producto = data.payload[0];
             renderizarProducto(producto);
         }
@@ -41,9 +41,9 @@ async function eliminarProducto(id){
     const confirmarEliminacion = confirm("Estas seguro de eliminarlo ?");
     if(confirmarEliminacion){
         try {
-
             const response = await fetch(`${urlBase}/${id}`,
                 {method: "DELETE"});
+                
             const dataResponse = await response.json();
             
             if(response.ok){

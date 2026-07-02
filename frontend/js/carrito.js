@@ -6,7 +6,7 @@ function aplicarTema(tema) {
         document.body.classList.remove('tema-claro');
     }
 }
- 
+
 function iniciarTema() {
     const temaGuardado = localStorage.getItem('tema') || 'oscuro';
     const select = document.getElementById('tema-select');
