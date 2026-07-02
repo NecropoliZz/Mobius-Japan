@@ -30,32 +30,7 @@ export const obtenerProductosActivos = async (req, res) => {
     }
 }
 
-export const obtenerProductosAll = async (req, res) => {
-    try {
-        
-        //Traemos la filas y meta data del resultado de models
-        const [rows, fields] = await productosModels.selectProductosAll();
 
-        if (rows.length === 0) {
-            return res.status(404).json({
-                message: "No se encontraron productos"
-            });
-        }
-    
-        res.status(200).json({
-            payload: rows,
-            total: rows.length 
-        });
-
-    } catch (error) {
-        console.log("Error obteniendo los productos: ", error);
-
-        
-        res.status(500).json({
-            message: "Error interno al obtener productos"
-        });
-    }
-}
 
 export const obtenerProductoPorId = async (req, res) => {
 
