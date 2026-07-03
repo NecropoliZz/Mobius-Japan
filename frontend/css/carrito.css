@@ -99,7 +99,6 @@ nav ul {
     display: flex;
     align-items: center;
     gap: 6px;
-    white-space: nowrap;
     font-size: 0.875rem;
     color: var(--color-text);
 }
@@ -225,7 +224,6 @@ main {
     font-size: 1rem;
     font-weight: 500;
     flex: 1;
-    overflow-wrap: break-word;
 }
  
  

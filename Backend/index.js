@@ -26,10 +26,11 @@ app.set("view engine", "ejs")
 app.set("views", join(__dirname, "src/views"));
 app.use(express.static(join(__dirname, "src/public")));
 app.use("/uploads",express.static(join(__dirname, "uploads")))
+//middleware de sesion que la da memoria a nuestro servidor
 app.use(session({
-    secret: session_key, 
-    resave: false, 
-    saveUninitialized: true 
+    secret: session_key, //clave secreta
+    resave: false, //evita guardar sesiones sino hubo cambios
+    saveUninitialized: true //guarda sesiones vacias
 }));
 
 // Endpoints
