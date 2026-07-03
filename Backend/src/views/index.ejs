@@ -11,6 +11,7 @@
                         <h4><%=producto.nombre%></h4>
                         <p>Id: <%=producto.id%></p>
                         <p>$<%=producto.precio%></p>
+                        <p>Estado: <%= producto.activo ? "Activo" : "Inactivo" %></p>
                 </div>
                  <% }) %>
             </div>

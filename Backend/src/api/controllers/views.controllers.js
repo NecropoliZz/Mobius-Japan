@@ -6,7 +6,7 @@ import productosModels from "../models/productos.models.js";
 export const indexView = async (req, res) => {
     try {
 
-        const [rows] = await productosModels.selectProductosActivos();
+        const [rows] = await productosModels.selectProductosAll();
 
         res.render("index", {
             title: "Dashboard",

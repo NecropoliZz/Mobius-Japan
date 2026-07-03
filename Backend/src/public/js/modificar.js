@@ -61,16 +61,16 @@ function renderFormSetProducto(producto) {
 
         <label for="categoryProd">Categoria</label>
         <select name="categoria" id="categoryProd" required>
-            <option value="juguete">juguete</option>
-            <option value="figura">figura</option>
+            <option value="juguete" ${producto.categoria === "juguete" ? "selected" : ""} >juguete</option>
+            <option value="figura" ${producto.categoria === "figura" ? "selected" : ""} >figura</option>
         </select>
 
         <label for="priceProd">Precio</label>
         <input type="number" name="precio" id="priceProd" value="${producto.precio}" required>
         <label for="activeProd">Activo</label>
         <select name="activo" id="activeProd">
-            <option value="1">activo</option>
-            <option value="0">inactivo</option>
+            <option value="1" ${producto.activo == 1 ? "selected" : ""}>activo</option>
+            <option value="0" ${producto.activo == 0 ? "selected" : ""}>inactivo</option>
         </select>
         
         <div>

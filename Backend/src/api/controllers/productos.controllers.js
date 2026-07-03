@@ -1,7 +1,7 @@
 import productosModels from "../models/productos.models.js";
 
 
-export const obtenerProductos = async (req, res) => {
+export const obtenerProductosActivos = async (req, res) => {
     
     try {
         
@@ -29,6 +29,8 @@ export const obtenerProductos = async (req, res) => {
         });
     }
 }
+
+
 
 export const obtenerProductoPorId = async (req, res) => {
 
@@ -101,7 +103,7 @@ export const modificarProducto = async (req, res) => {
             })
         }
     
-        return res.status(204).json({
+        return res.status(200).json({
             message: "Producto actualizado correctamente"
         });
 
