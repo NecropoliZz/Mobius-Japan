@@ -1,5 +1,5 @@
-const getProductForm = document.getElementById("get-producto-form");
-const contenedorProducto = document.getElementById("contenedor-producto");
+const getProductForm = document.getElementById("producto-form");
+const contenedorProducto = document.getElementById("contenedor-productos");
 const contenedorFormSetProducto = document.getElementById("seccion-form-modificar");
 
 const urlBase = "http://localhost:3000/api/productos";
@@ -48,7 +48,8 @@ function renderizarProducto(producto) {
 
 function renderFormSetProducto(producto) {
     contenedorFormSetProducto.innerHTML = `
-    <form id="form-modificar" class="form-alta">
+    <h2>Modificar producto</h2>
+    <form id="formularioEditProducto">
 
         <input type="hidden" name="id" value="${producto.id}">
 
@@ -77,7 +78,7 @@ function renderFormSetProducto(producto) {
         </div>
     </form>
     `;
-    const formModificar = document.getElementById("form-modificar");
+    const formModificar = document.getElementById("formularioEditProducto");
 
     formModificar.addEventListener("submit", event => {
         const confirmacion = confirm("Querés actualizar este producto?");

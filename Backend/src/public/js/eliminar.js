@@ -1,4 +1,4 @@
-const contenedorProducto = document.getElementById("contenedor-producto");
+const contenedorProducto = document.getElementById("contenedor-productos");
 const getProductForm = document.getElementById("producto-form");
 const urlBase = "http://localhost:3000/api/productos";
         
@@ -32,7 +32,7 @@ function renderizarProducto(producto){
         <div class="lista-producto">
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <p>Id: ${producto.id} / Nombre: ${producto.nombre} / <strong>Precio: $${producto.precio}</strong></p>
-            <button id="btn-eliminar" onClick= eliminarProducto(${producto.id})> Eliminar</button>
+            <button id="btn-eliminar" class="btn" onClick= eliminarProducto(${producto.id}) > Eliminar</button>
         </div>`;
 }
 
@@ -58,8 +58,15 @@ async function eliminarProducto(id){
             console.error(error);
         }
     }
+    else{
+        mostrarMensajeInfo("Producto no eliminado")
+    }
 }
+
 /* Funcion que envia un mensaje al usuario mostrandole el resultado de su accion con nuestro sistema */
 function mostrarMensajeFeedback(tipo, mensaje) {
     contenedorProducto.innerHTML = `<p class="mensaje mensaje-${tipo}">${mensaje}</p>`;
+}
+function mostrarMensajeInfo(mensaje){
+    contenedorProducto.innerHTML = `<p class="mensaje">${mensaje}</p>`;
 }

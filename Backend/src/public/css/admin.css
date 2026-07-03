@@ -12,22 +12,54 @@
     align-items: center;
     gap: 10px;
 }
+/* Crear Producto */
+#formularioProducto{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
-.btn-consultar{
-    background-color: blueviolet;
-    padding: 7px 10px;
-    border: 1px solid blueviolet;
+#formularioUsuario{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
-.btn-modificar{
-    border: 1px solid #fff;
-    padding: 2px 3px;
-    cursor: pointer;
+#formularioEditProducto{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
+#formularioEditProducto{
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-alta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 
 #idProd{
     max-height: 20px;
 }
 
+/* Estilo del producto encontrado */
 #contenedor-productos ul {
     margin-top: 20px;
     margin-left: 10px;
@@ -49,20 +81,6 @@
     font-size: 1rem;
 }
 
-/* Crear Producto */
-#formularioProducto{
-    padding-left: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-#formularioUsuario{
-    padding-left: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
 
 input{
     max-width: 300px;
@@ -74,15 +92,6 @@ select{
     padding: 2px 2px;
     color: #ffffff;
     background-color: #1f1f27;
-}
-
-#contenedor-btn{
-    margin-top: 20px;
-}
-
-.btn-crear{
-    padding: 5px 10px;
-    background-color: blueviolet;
 }
 
 .Login{
@@ -99,21 +108,6 @@ select{
     width: 80px;
 }
 
-.form-alta{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-.form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
 #titulo-login{
     margin-bottom: 10px;
 }
@@ -122,32 +116,39 @@ select{
     width: 400px;
 }
 
+
+/* Estilos de botones */
+
+#contenedor-btn{
+    margin-top: 20px;
+}
+
 .btn{
-    padding: 4px 8px;
+    padding: 7px 10px;
     cursor: pointer;
-    border-radius: 10px;
-    border: 1px solid #000;
+    border-radius: 2px;
+    background-color: rgba(126, 10, 235);
+    border: 1px solid blueviolet;
 }
 
 .btn-login{
     padding: 10px 30px;
-    background-color: rgba(126, 10, 235);
     border-radius: 6px;
     border: 1px solid black;
-    color: black;
     font-size: 1rem;
 }
 
 .btn-logout {
     padding: 10px 30px;
-    background-color: rgba(126, 10, 235);
     border-radius: 6px;
     border: 1px solid black;
     color: black;
     font-size: 1rem;
     margin-left: 10px;
-
 }
+
+/* Estilo de mensajes FeedBack */
+
 .mensaje{
     font-size: 21px;
     padding: 15px 15px;

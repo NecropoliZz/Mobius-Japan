@@ -21,7 +21,9 @@ getProductForm.addEventListener("submit", async event => {
     const data = await response.json();
     
     if (!response.ok) {
+        mostrarMensajeFeedback("error","No se encontro un producto con ese id");
         return;
+
         }
 
     console.log(data.payload[0]); 
@@ -44,3 +46,8 @@ getProductForm.addEventListener("submit", async event => {
 
     }
     })
+
+/* Funcion que envia un mensaje al usuario mostrandole el resultado de su accion con nuestro sistema */
+function mostrarMensajeFeedback(tipo, mensaje) {
+    contenedorProductos.innerHTML = `<p class="mensaje mensaje-${tipo}">${mensaje}</p>`;
+}
